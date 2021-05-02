@@ -47,3 +47,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDZkZ
 ###delete task
 DELETE   http://localhost:5000/api/task/606dedaccaab5a3fccf1d535
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDZkZWQyNGNhYWI1YTNmY2NmMWQ1MzMiLCJpYXQiOjE2MTkyNzY2ODZ9.mf62AU5DVyJoXePv2gKVDzXFffiTJyq48TPza1vafqY
+
+####
+GET  http://localhost:5000/api/auth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDZkZWQyNGNhYWI1YTNmY2NmMWQ1MzMiLCJpYXQiOjE2MTk5NDU5MzZ9.hEoOUOhJLtyhZ8CsH4Q6JAk_hl1o8s0qgJf9lrFqC7U
