@@ -1,0 +1,49 @@
+### register user
+POST   http://localhost:3000/api/auth/register
+Content-Type:  application/json
+
+{
+    "username": "hien",
+    "password": "hien"
+}
+
+### login user
+POST   http://localhost:3000/api/auth/login
+Content-Type:  application/json
+
+{
+    "username": "thai",
+    "password": "thai"
+}
+### create task
+POST  http://localhost:3000/api/task
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDZkZWQyNGNhYWI1YTNmY2NmMWQ1MzMiLCJpYXQiOjE2MTc4MTY5MDR9.6jzl5LcOk9eLaxfbJnYz7YQsKohTROrndbY5XaMWZck
+
+{
+    "title":"react",
+    "description":"làm fontend bằng cái này thì khó seo",
+    "url":"react.org",
+    "status":"LEARNED"
+}
+
+### get task
+GET   http://localhost:3000/api/task
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDZkZWQyNGNhYWI1YTNmY2NmMWQ1MzMiLCJpYXQiOjE2MTkyNzY2ODZ9.mf62AU5DVyJoXePv2gKVDzXFffiTJyq48TPza1vafqY
+
+### update task
+PUT    http://localhost:3000/api/task/606dee37caab5a3fccf1d537
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDZkZWQyNGNhYWI1YTNmY2NmMWQ1MzMiLCJpYXQiOjE2MTc4MTY5MDR9.6jzl5LcOk9eLaxfbJnYz7YQsKohTROrndbY5XaMWZck
+
+{
+    "title":"react",
+    "description":"kệ nó cứ học đi ",
+    "url":"https://react.com",
+    "status":"LEARNING"
+}
+
+
+###delete task
+DELETE   http://localhost:3000/api/task/606dedaccaab5a3fccf1d535
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDZkZWQyNGNhYWI1YTNmY2NmMWQ1MzMiLCJpYXQiOjE2MTkyNzY2ODZ9.mf62AU5DVyJoXePv2gKVDzXFffiTJyq48TPza1vafqY
