@@ -1,17 +1,52 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import { AuthContext } from '../../../contexts/AuthContext'
 
 const LoginFrom = () => {
+    const { loginUser } = useContext(AuthContext)
+    const [loginForm, setLoginForm] = useState({
+        username: '',
+        password: ''
+    })
+    const history = useHistory()
+    const { username, password } = loginForm
+    const onChangenLoginForm = event => setLoginForm({
+        ...loginForm,
+        [event.target.name]: event.target.value
+    })
+    const login = async event => {
+        event.preventDefault()
+        try {
+            const loginData = await loginUser(loginForm)
+            if (loginData.success) {
+                history.push('/dashboard')
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return (
         <>
-            <Form className='my-4'>
+            <Form className='my-4' onSubmit={login}>
                 <Form.Group>
-                    <Form.Control type='text' placeholder='Username' name='username' required />
+                    <Form.Control
+                        type='text'
+                        placeholder='Username'
+                        name='username'
+                        value={username}
+                        onChange={onChangenLoginForm}
+                        required />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Control type='password' placeholder='Password' name='password' required />
+                    <Form.Control
+                        type='password'
+                        placeholder='Password'
+                        name='password'
+                        value={password}
+                        onChange={onChangenLoginForm}
+                        required />
                 </Form.Group>
                 <Button variant='success' type='submit'>Login</Button>
             </Form>
