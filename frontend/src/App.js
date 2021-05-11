@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Auth from './views/Auth';
 import Home from './views/Home';
 import AuthContextProvider from './contexts/AuthContext';
+import Dashboard from './views/Dashboard';
+import ProtectedRoute from './components/routing/ProtectedRoute';
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route exact path='/login' render={props => <Auth {...props} authRoute='login' />} />
           <Route exact path='/register' render={props => <Auth {...props} authRoute='register' />} />
+          <ProtectedRoute exact path='/dashboard' component={Dashboard} />
         </Switch>
       </Router>
     </AuthContextProvider>

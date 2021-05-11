@@ -1,11 +1,15 @@
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { Fragment, useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { AuthContext } from '../../contexts/AuthContext'
 
 const LoginFrom = () => {
+    //contaex
     const { loginUser } = useContext(AuthContext)
+    // router
+    const history = useHistory()
+    // local state
     const [loginForm, setLoginForm] = useState({
         username: '',
         password: ''
@@ -18,7 +22,9 @@ const LoginFrom = () => {
         event.preventDefault()
         try {
             const loginData = await loginUser(loginForm)
-            console.log(loginData);
+            if (loginData.success) {
+                history.push('/dashboard')
+            }
         } catch (error) {
             console.log(error);
         }

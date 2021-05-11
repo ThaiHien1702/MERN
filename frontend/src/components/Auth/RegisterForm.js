@@ -8,13 +8,28 @@ const Register = () => {
         <Fragment>
             <Form className='my-4'>
                 <Form.Group>
-                    <Form.Control type='text' placeholder='Username' name='username' required />
+                    <Form.Control
+                        type='text'
+                        placeholder='Username'
+                        name='username'
+                        required
+                    />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Control type='password' placeholder='Password' name='password' required />
+                    <Form.Control
+                        type='password'
+                        placeholder='Password'
+                        name='password'
+                        required
+                    />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Control type='password' placeholder='Confirm Password' name='confirmpassword' required />
+                    <Form.Control
+                        type='password'
+                        placeholder='Confirm Password'
+                        name='confirmpassword'
+                        required
+                    />
                 </Form.Group>
                 <Button variant='success' type='submit'>Register</Button>
             </Form>

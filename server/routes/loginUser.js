@@ -5,6 +5,9 @@ const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const verifyToken = require('../middleware/authMiddleware');
 
+//@router get api/auth
+//@desc check if user is logged in
+//@access Public
 router.get('/', verifyToken, async (req, res) => {
     try {
         const user = await User.findById(req.userId).select('-password')
