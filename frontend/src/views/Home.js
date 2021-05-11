@@ -1,10 +1,10 @@
 import React from 'react'
 import { Redirect } from 'react-router'
 
-const Landing = () => {
+const Home = () => {
     return (
         <Redirect to='/login' />
     )
 }
 
-export default Landing
+export default Home
