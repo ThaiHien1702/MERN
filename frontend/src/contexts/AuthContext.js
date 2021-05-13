@@ -50,8 +50,29 @@ const AuthContextProvider = ({ children }) => {
             else return { success: false, message: error.message }
         }
     }
+    //function register
+    const registerUser = async (registerForm) => {
+        try {
+            const response = await axios.post(`${url}/auth/register`, registerForm)
+            if (response.data.success)
+                localStorage.setItem(LOCAL_STOGAE_TOKEN_NAME, response.data.accessToken)
+            await loadUser()
+            return response.data
+        } catch (error) {
+            if (error.response.data) return error.response.message
+            else return { success: false, message: error.message }
+        }
+    }
+    //logout
+    const logoutUser = () => {
+        localStorage.removeItem(LOCAL_STOGAE_TOKEN_NAME)
+        dispath({
+            type: 'SET_AUTH',
+            payload: { isAuththenticated: false, user: null }
+        })
+    }
     //context data
-    const authContextData = { loginUser, authState }
+    const authContextData = { loginUser, authState, registerUser, logoutUser }
     //return provider
     return (
         <AuthContext.Provider value={authContextData}>

@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button'
 import { Fragment, useContext, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { AuthContext } from '../../contexts/AuthContext'
+import AlertMessage from '../AlertMessage/AlertMessage'
 
 const LoginFrom = () => {
     //contaex
@@ -14,6 +15,7 @@ const LoginFrom = () => {
         username: '',
         password: ''
     })
+    const [alert, setAlret] = useState(null)
     const { username, password } = loginForm
     const onChangeLoginForm = (event) => {
         setLoginForm({ ...loginForm, [event.target.name]: event.target.value })
@@ -24,7 +26,11 @@ const LoginFrom = () => {
             const loginData = await loginUser(loginForm)
             if (loginData.success) {
                 history.push('/dashboard')
+            } else {
+                setAlret({ type: 'danger', message: loginData.message })
+                setTimeout(() => setAlret(null), 5000)
             }
+
         } catch (error) {
             console.log(error);
         }
@@ -32,6 +38,7 @@ const LoginFrom = () => {
     return (
         <Fragment>
             <Form className='my-4' onSubmit={login}>
+                <AlertMessage info={alert} />
                 <Form.Group>
                     <Form.Control
                         type='text'

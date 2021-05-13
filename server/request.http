@@ -18,18 +18,18 @@ Content-Type:  application/json
 ### create task
 POST  http://localhost:5000/api/task
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDZkZWQyNGNhYWI1YTNmY2NmMWQ1MzMiLCJpYXQiOjE2MTc4MTY5MDR9.6jzl5LcOk9eLaxfbJnYz7YQsKohTROrndbY5XaMWZck
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDhlY2QwZDI3NjdiOTJjNWNkODE5N2IiLCJpYXQiOjE2MjA4MzUxMTF9.S7dTmG6Agfki85BK28Jr4KN99lz3kvFzxWcJHqfP4LU
 
 {
-    "title":"react",
-    "description":"làm fontend bằng cái này thì khó seo",
+    "title":"nodejs",
+    "description":"làm backend bằng cá",
     "url":"react.org",
     "status":"LEARNED"
 }
 
 ### get task
 GET   http://localhost:5000/api/task
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDZkZWQyNGNhYWI1YTNmY2NmMWQ1MzMiLCJpYXQiOjE2MTkyNzY2ODZ9.mf62AU5DVyJoXePv2gKVDzXFffiTJyq48TPza1vafqY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDhlY2QwZDI3NjdiOTJjNWNkODE5N2IiLCJpYXQiOjE2MjA4MzUxMTF9.S7dTmG6Agfki85BK28Jr4KN99lz3kvFzxWcJHqfP4LU
 
 ### update task
 PUT    http://localhost:5000/api/task/606dee37caab5a3fccf1d537
